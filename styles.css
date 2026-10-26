@@ -43,3 +43,31 @@ body{padding-top:64px}
   .hero h1{font-size:clamp(31px,9.4vw,44px)}
   .hero-copy>p{font-size:16px!important}
 }
+
+/* v6: full-screen Enrichment Opportunities + larger navigation wordmark */
+.opportunities{
+  min-height:calc(100vh - 64px);
+  display:flex;
+  align-items:center;
+  padding:clamp(64px,8vh,110px) 0;
+}
+.opportunities .wrap{width:min(calc(100% - (var(--gutter)*2)),var(--max))}
+.opportunities h2{font-size:clamp(42px,4.2vw,64px);margin-bottom:16px}
+.opportunities p{font-size:clamp(16px,1.2vw,19px);line-height:1.5;max-width:720px}
+.opportunities .tags{margin-top:42px;max-width:1100px;gap:14px 18px}
+.opportunities .tags span{padding:10px 14px;font-size:clamp(12px,.9vw,14px)}
+.brand img{height:40px;max-width:190px}
+
+@media(max-width:760px){
+  .opportunities{min-height:calc(100vh - 58px);padding:58px 0}
+  .opportunities h2{font-size:clamp(34px,8vw,48px)}
+  .opportunities p{font-size:16px}
+  .opportunities .tags{margin-top:30px}
+  .brand img{height:33px;max-width:155px}
+}
+@media(max-width:500px){
+  .opportunities{min-height:calc(100vh - 58px);height:auto;padding:48px 0}
+  .opportunities .tags{gap:10px}
+  .opportunities .tags span{padding:9px 8px;font-size:11px}
+  .brand img{height:30px;max-width:140px}
+}
