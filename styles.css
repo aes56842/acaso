@@ -87,3 +87,47 @@ body{padding-top:64px}
 .brand img{height:50px;max-width:235px}
 @media(max-width:760px){.brand img{height:40px;max-width:190px}}
 @media(max-width:500px){.brand img{height:36px;max-width:170px}}
+
+/* v9 typography hierarchy: hero remains the dominant display statement */
+:root{
+  --section-title:clamp(30px,2.7vw,44px);
+  --section-title-mobile:clamp(28px,7vw,38px);
+}
+.opportunities h2,
+.media h2,
+.independent h2,
+.global h2{
+  font-size:var(--section-title);
+  line-height:1.05;
+  letter-spacing:.01em;
+  font-weight:800;
+}
+.opportunities h2{margin-bottom:18px}
+.opportunities p,.media p,.independent-copy p,.global p{
+  font-size:clamp(15px,1.05vw,18px);
+}
+.video-title span,.video-title strong{
+  font-size:clamp(32px,3.4vw,52px);
+  line-height:.92;
+}
+.video-title em{font-size:clamp(18px,1.8vw,28px)}
+.step h3{
+  font-size:clamp(18px,1.55vw,24px);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#d7d7d2;
+}
+.step-row h2{
+  font-size:clamp(30px,2.8vw,44px);
+  line-height:1.04;
+}
+.circumstances h2{
+  font-size:clamp(34px,3.4vw,52px);
+  line-height:.96;
+}
+@media(max-width:760px){
+  .opportunities h2,.media h2,.independent h2,.global h2{font-size:var(--section-title-mobile)}
+  .video-title span,.video-title strong{font-size:clamp(30px,8vw,44px)}
+  .step-row h2{font-size:clamp(28px,7.5vw,40px)}
+  .circumstances h2{font-size:clamp(32px,8vw,44px)}
+}
