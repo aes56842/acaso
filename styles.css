@@ -259,3 +259,43 @@ body{padding-top:64px}
   .global h2{max-width:90%}
   .global p{max-width:80%;line-height:1.4}
 }
+
+/* v12: Global Connection placement + calmer section pacing */
+.global .wrap{
+  padding-top:clamp(150px,22vh,235px);
+}
+.global h2{
+  font-size:clamp(46px,4.4vw,72px);
+  line-height:.98;
+  margin-bottom:14px;
+  max-width:760px;
+}
+.global p{
+  font-size:clamp(18px,1.35vw,23px);
+  max-width:540px;
+}
+
+/* Give each major experience a quiet exit before the next one arrives. */
+main > .band{
+  margin-bottom:clamp(72px,9vh,120px);
+  overflow:hidden;
+}
+main > .band:last-child{margin-bottom:0}
+body{background:#0d0d0d}
+
+/* Let scrolling feel natural instead of aggressively locking panels together. */
+html{scroll-snap-type:none!important}
+.band{scroll-snap-align:none!important;scroll-snap-stop:normal!important}
+
+@media(max-width:900px){
+  .global .wrap{padding-top:clamp(125px,18vh,180px)}
+  .global h2{font-size:clamp(42px,6vw,58px)}
+  .global p{font-size:clamp(17px,2vw,20px)}
+  main > .band{margin-bottom:clamp(58px,7vh,86px)}
+}
+@media(max-width:600px){
+  .global .wrap{padding-top:clamp(92px,14vh,130px)}
+  .global h2{font-size:clamp(38px,10vw,50px);max-width:96%}
+  .global p{font-size:17px;max-width:88%}
+  main > .band{margin-bottom:44px}
+}
