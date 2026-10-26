@@ -71,3 +71,13 @@ body{padding-top:64px}
   .opportunities .tags span{padding:9px 8px;font-size:11px}
   .brand img{height:30px;max-width:140px}
 }
+
+/* v7: interactive opportunity selectors */
+.opportunities .tags{max-width:1180px;gap:16px 20px}
+.opportunities .tags .tag{appearance:none;-webkit-appearance:none;width:100%;min-height:54px;padding:13px 18px;border:2px solid var(--yellow);border-radius:0;background:transparent;color:#fff;font:inherit;font-size:clamp(13px,1vw,15px);font-weight:800;letter-spacing:.06em;line-height:1.15;text-align:center;cursor:pointer;transition:background-color .18s ease,color .18s ease,transform .18s ease,border-color .18s ease}
+.opportunities .tags .tag.is-selected{background:var(--yellow);color:#111}
+.opportunities .tags .tag:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media (hover:hover) and (pointer:fine){.opportunities .tags .tag:hover{transform:translateY(-2px)}}
+@media(max-width:760px){.opportunities .tags .tag{min-height:52px;padding:12px 10px;font-size:12px}}
+@media(max-width:500px){.opportunities .tags .tag{min-height:50px;padding:11px 8px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.opportunities .tags .tag{transition:none}}

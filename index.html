@@ -22,11 +22,11 @@
 <section class="opportunities band"><div class="wrap">
   <h2>Enrichment Opportunities</h2>
   <p>We classify enrichment opportunities as any material or practice you can<br class="desktop"> learn from, such as</p>
-  <div class="tags">
-    <span>Interviews</span><span>Competitions</span><span>Shadowing</span><span>Volunteer</span>
-    <span>Programs</span><span>Fellowships</span><span>Research</span>
-    <span class="hot">Internships</span><span>Apprentice</span><span>Workshops</span>
-    <span>Partnerships</span><span>Contributions</span><span class="hot">Networking</span>
+  <div class="tags" aria-label="Select enrichment opportunities">
+    <button type="button" class="tag" aria-pressed="false">Interviews</button><button type="button" class="tag" aria-pressed="false">Competitions</button><button type="button" class="tag" aria-pressed="false">Shadowing</button><button type="button" class="tag" aria-pressed="false">Volunteer</button>
+    <button type="button" class="tag" aria-pressed="false">Programs</button><button type="button" class="tag" aria-pressed="false">Fellowships</button><button type="button" class="tag" aria-pressed="false">Research</button>
+    <button type="button" class="tag is-selected" aria-pressed="true">Internships</button><button type="button" class="tag" aria-pressed="false">Apprentice</button><button type="button" class="tag" aria-pressed="false">Workshops</button>
+    <button type="button" class="tag" aria-pressed="false">Partnerships</button><button type="button" class="tag" aria-pressed="false">Contributions</button><button type="button" class="tag is-selected" aria-pressed="true">Networking</button>
   </div>
 </div></section>
 
@@ -53,3 +53,15 @@
 <footer id="contact"><div class="wrap footer-row"><span>Contact Us</span><div class="socials"><span>IG</span><span>YT</span><span>X</span><span>FB</span></div></div></footer>
 
 </body></html>
+
+<script>
+(() => {
+  const tags = document.querySelectorAll('.tags .tag');
+  tags.forEach((tag) => {
+    tag.addEventListener('click', () => {
+      const selected = tag.classList.toggle('is-selected');
+      tag.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+  });
+})();
+</script>
