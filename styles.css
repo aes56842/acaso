@@ -351,3 +351,55 @@ html{scroll-snap-type:none!important}
     line-height:1.3;
   }
 }
+
+/* v14: explicitly lower Global Connection copy into the monument composition */
+.global{position:relative;}
+.global .wrap{
+  position:absolute;
+  z-index:2;
+  top:43%;
+  left:32%;
+  width:auto;
+  max-width:760px;
+  padding:0;
+  margin:0;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+@media(max-width:900px){
+  .global .wrap{
+    top:40%;
+    left:38%;
+    padding:0;
+    transform:translate(-50%,-50%);
+  }
+}
+@media(max-width:600px){
+  .global .wrap{
+    top:32%;
+    left:50%;
+    width:calc(100% - 48px);
+    max-width:none;
+    padding:0;
+    transform:translate(-50%,-50%);
+  }
+}
+
+
+/* v15: targeted Global Connection typography adjustment only */
+.global .wrap{top:47%;}
+.global h2{font-size:clamp(40px,3.6vw,58px);margin-bottom:20px;}
+.global p{font-size:clamp(18px,1.35vw,23px);line-height:1.28;max-width:430px;}
+@media(max-width:900px){
+  .global .wrap{top:44%;}
+  .global h2{font-size:clamp(38px,5vw,52px);}
+  .global p{font-size:clamp(17px,2.2vw,21px);}
+}
+@media(max-width:600px){
+  .global .wrap{top:38%;}
+  .global h2{font-size:clamp(34px,9vw,44px);}
+  .global p{font-size:17px;line-height:1.3;}
+}
