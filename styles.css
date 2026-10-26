@@ -81,3 +81,9 @@ body{padding-top:64px}
 @media(max-width:760px){.opportunities .tags .tag{min-height:52px;padding:12px 10px;font-size:12px}}
 @media(max-width:500px){.opportunities .tags .tag{min-height:50px;padding:11px 8px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.opportunities .tags .tag{transition:none}}
+
+
+/* v8: neutral initial opportunity state + larger navbar logo */
+.brand img{height:50px;max-width:235px}
+@media(max-width:760px){.brand img{height:40px;max-width:190px}}
+@media(max-width:500px){.brand img{height:36px;max-width:170px}}
