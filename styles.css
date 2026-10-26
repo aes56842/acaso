@@ -442,3 +442,62 @@ html{scroll-snap-type:none!important}
   .media-card.backstage .media-frame,.media-card.workshop .media-frame,.media-card.process .media-frame{height:min(118vw,560px);}
   .play{width:72px;height:72px}.play::after{left:30px;top:20px;border-top-width:16px;border-bottom-width:16px;border-left-width:25px;}
 }
+
+/* v17: consistent section hierarchy + Independent, Never Alone artwork */
+:root{
+  --section-title-v17: clamp(36px,3vw,48px);
+}
+.media-copy h2{
+  font-size:var(--section-title-v17);
+  text-decoration:none;
+  text-underline-offset:initial;
+  margin-bottom:24px;
+}
+.opportunities h2,
+.global h2,
+.independent h2,
+.circumstances h2{
+  font-size:var(--section-title-v17);
+  line-height:1.04;
+  letter-spacing:-.02em;
+}
+.video-title span,.video-title strong{
+  font-size:var(--section-title-v17);
+  line-height:.94;
+}
+.independent{
+  min-height:calc(100vh - var(--nav-h));
+  display:flex;
+  align-items:center;
+  background:#111;
+}
+.independent-img{
+  position:absolute;
+  inset:0 0 0 auto;
+  width:55%;
+  height:100%;
+  background-image:linear-gradient(90deg,#111 0%,rgba(17,17,17,.58) 20%,rgba(17,17,17,.08) 55%),url('independent-city.png');
+  background-size:cover;
+  background-position:center center;
+  opacity:1;
+}
+.independent-img:after{content:none;}
+.independent-copy{
+  position:relative;
+  z-index:2;
+  padding:0;
+}
+.independent-copy h2{max-width:620px;margin-bottom:22px;}
+.independent-copy p{max-width:600px;font-size:clamp(16px,1.15vw,19px);line-height:1.55;color:#e7e7e3;}
+@media(max-width:900px){
+  :root{--section-title-v17:clamp(34px,5.5vw,44px);}
+  .independent-img{width:58%;}
+  .independent-copy p{max-width:48%;}
+}
+@media(max-width:700px){
+  :root{--section-title-v17:clamp(32px,8.5vw,42px);}
+  .independent{display:flex;padding:0;align-items:flex-end;min-height:calc(100vh - var(--nav-h));}
+  .independent-img{inset:0;width:100%;height:100%;background-image:linear-gradient(0deg,#111 0%,rgba(17,17,17,.9) 30%,rgba(17,17,17,.18) 68%),url('independent-city.png');background-position:center 35%;}
+  .independent-copy{padding:0 0 64px;}
+  .independent-copy p{max-width:100%;font-size:16px;}
+}
