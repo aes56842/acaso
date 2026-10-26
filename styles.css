@@ -299,3 +299,55 @@ html{scroll-snap-type:none!important}
   .global p{font-size:17px;max-width:88%}
   main > .band{margin-bottom:44px}
 }
+
+/* v13: Global Connection composition matched to supplied reference */
+.global{
+  align-items:flex-start;
+}
+.global .wrap{
+  width:min(100% - (var(--gutter) * 2), var(--max));
+  padding-top:clamp(155px,20vh,215px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transform:translateX(-15%);
+}
+.global h2{
+  font-size:clamp(48px,4.7vw,76px);
+  line-height:1;
+  max-width:none;
+  margin:0 0 18px;
+  white-space:nowrap;
+}
+.global p{
+  font-size:clamp(20px,1.65vw,28px);
+  line-height:1.22;
+  max-width:500px;
+  margin:0;
+}
+@media(max-width:900px){
+  .global .wrap{
+    padding-top:clamp(130px,17vh,170px);
+    transform:translateX(-9%);
+  }
+  .global h2{font-size:clamp(42px,6vw,60px)}
+  .global p{font-size:clamp(18px,2.4vw,23px);max-width:430px}
+}
+@media(max-width:600px){
+  .global .wrap{
+    padding-top:clamp(95px,13vh,125px);
+    transform:none;
+  }
+  .global h2{
+    font-size:clamp(36px,10vw,48px);
+    white-space:normal;
+    max-width:100%;
+    margin-bottom:12px;
+  }
+  .global p{
+    font-size:18px;
+    max-width:300px;
+    line-height:1.3;
+  }
+}
