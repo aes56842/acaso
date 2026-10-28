@@ -551,3 +551,14 @@ html{scroll-snap-type:none!important}
 .hero-copy>p,.opportunities p,.video-band p,.global p,.media-copy p,.independent-copy p,.step-row p,.circumstances p{font-family:Arial,Helvetica,sans-serif;font-weight:400;letter-spacing:0}
 @media(max-width:900px){.opportunity-head{align-items:flex-start}.opportunity-cards{grid-template-columns:repeat(2,1fr)}.opportunity-card:last-child{grid-column:1/-1}.opportunity-card-copy{min-height:110px}}
 @media(max-width:700px){.opportunities{min-height:calc(100vh - 58px);height:auto;padding:60px 0 72px}.opportunity-head{display:block;margin-bottom:30px}.opportunity-head p{font-size:16px}.explore-more{display:inline-flex;margin-top:22px;font-size:17px}.opportunity-cards{grid-template-columns:1fr;gap:14px}.opportunity-card:last-child{grid-column:auto}.opportunity-card img{aspect-ratio:1.55/1}.opportunity-card-copy{min-height:auto;padding:22px 18px;font-size:20px}.global::after{height:90px!important}}
+
+/* v20.1 - verified enrichment layout correction */
+@media (min-width: 901px){
+  .opportunities .opportunity-layout{display:block!important;max-width:1400px!important;margin:0 auto!important}
+  .opportunities .opportunity-head{display:flex!important;flex-direction:row!important;align-items:flex-end!important;justify-content:space-between!important;width:100%!important;margin-bottom:42px!important}
+  .opportunities .explore-more{display:inline-flex!important;align-items:center!important;margin:0 0 4px auto!important;text-decoration:none!important}
+  .opportunities .opportunity-cards{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:3px!important;width:100%!important}
+  .opportunities .opportunity-card{display:flex!important;flex-direction:column!important;width:auto!important;max-width:none!important;margin:0!important}
+  .opportunities .opportunity-card img{width:100%!important;height:auto!important;aspect-ratio:1.36/1!important;object-fit:cover!important}
+  .opportunities .opportunity-card-copy{display:block!important;width:100%!important;box-sizing:border-box!important}
+}
