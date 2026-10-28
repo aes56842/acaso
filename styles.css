@@ -505,3 +505,32 @@ html{scroll-snap-type:none!important}
 /* v18: guarantee Independent, Never Alone fills the viewport */
 .independent{min-height:calc(100vh - 64px);min-height:calc(100dvh - var(--nav-h,64px));}
 @media(max-width:760px){:root{--nav-h:58px}.independent{min-height:calc(100vh - 58px);min-height:calc(100dvh - var(--nav-h,58px));}}
+
+/* v19: responsive art direction for Global Connection */
+@media(max-width:700px){
+  .global{
+    min-height:calc(100vh - 58px);
+    min-height:calc(100dvh - var(--nav-h,58px));
+    background:#111 url('global-connection-mobile.png') center bottom / cover no-repeat;
+    align-items:flex-start;
+  }
+  .global:before{
+    background:linear-gradient(180deg,rgba(17,17,17,.08) 0%,rgba(17,17,17,.02) 52%,rgba(17,17,17,.08) 100%);
+  }
+  .global .wrap{
+    width:100%;
+    padding:clamp(72px,12vh,118px) 24px 0;
+    text-align:center;
+  }
+  .global h2{
+    font-size:clamp(32px,9vw,42px);
+    max-width:100%;
+    margin:0 auto 14px;
+  }
+  .global p{
+    font-size:clamp(16px,4.6vw,19px);
+    max-width:290px;
+    margin:0 auto;
+    line-height:1.38;
+  }
+}
