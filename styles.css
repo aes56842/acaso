@@ -604,3 +604,41 @@ html{scroll-snap-type:y mandatory!important;scroll-padding-top:64px!important;sc
 main>.band{scroll-snap-align:start!important;scroll-snap-stop:always!important}
 @media(max-width:700px){html{scroll-snap-type:y proximity!important;scroll-padding-top:58px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;scroll-snap-type:none!important}}
+
+/* v25 - Getting Started is one chapter with three full-screen steps */
+.getting-started{
+  position:relative;
+  background:var(--ink);
+}
+.getting-started-label{
+  position:sticky;
+  top:calc(var(--nav-h, 70px) + clamp(28px,4vw,52px));
+  z-index:4;
+  width:min(1280px,calc(100% - (var(--gutter) * 2)));
+  margin:0 auto;
+  pointer-events:none;
+}
+.getting-started-label h3{
+  margin:0;
+  font-size:clamp(20px,2vw,30px);
+  letter-spacing:.035em;
+}
+.getting-step{
+  min-height:calc(100vh - var(--nav-h, 70px));
+  min-height:calc(100svh - var(--nav-h, 70px));
+  display:flex;
+  align-items:center;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  padding:clamp(110px,13vh,150px) 0 clamp(48px,7vh,80px);
+  border-bottom:1px solid rgba(255,255,255,.055);
+}
+.getting-step:nth-of-type(even){background:var(--ink2)}
+.getting-step .step-row{width:100%;margin-inline:auto}
+@media(max-width:760px){
+  .getting-started-label{top:calc(var(--nav-h,58px) + 24px)}
+  .getting-step{min-height:calc(100svh - var(--nav-h,58px));padding:100px 0 48px}
+}
+@media(max-width:500px){
+  .getting-step{padding:94px 0 44px}
+}

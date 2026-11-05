@@ -41,7 +41,7 @@
 <section class="global band"><div class="wrap"><h2>Global Connection</h2><p>Here, you’re not defined by<br>your zip-code</p></div></section>
 
 <section class="media band"><div class="wrap media-grid">
-  <div class="media-copy"><h2>Insider Media</h2><p>Explore videos, creative materials and advice from professionals directly in the industries <strong>you</strong> choose.</p></div>
+  <div class="media-copy"><h2>Media Discovery</h2><p>Explore through videos, creative materials<br class="desktop"> and advice from professionals in the<br class="desktop"> industries <strong>you</strong> choose.</p></div>
   <div class="media-cards">
     <figure class="media-card backstage"><figcaption>Backstage</figcaption><div class="media-frame"><img src="media-backstage.png" alt="Backstage production space"><span class="play" aria-hidden="true"></span></div></figure>
     <figure class="media-card workshop"><figcaption>Workshop</figcaption><div class="media-frame"><img src="media-workshop.png" alt="Colorful textiles in a workshop"><span class="play" aria-hidden="true"></span></div></figure>
@@ -51,9 +51,12 @@
 
 <section class="independent band"><div class="independent-img" role="img" aria-label="Crowded city street"></div><div class="wrap independent-copy"><h2>Independent, Never Alone</h2><p>Confident and secure resources and conversation in Career Counseling, Academic Advisement, Industry Panels, Interviews and many more. Both Interpersonal and smart communication.</p></div></section>
 
-<section class="step band"><div class="wrap"><h3>Getting Started</h3><div class="step-row"><div class="num">1</div><div><h2>Share your interests</h2><p>This helps us build your portfolio and<br class="desktop"> only send you information relevant to<br class="desktop"> your needs.</p></div></div></div></section>
-<section class="step band"><div class="wrap"><h3>Getting Started</h3><div class="step-row"><div class="num">2</div><div><h2>Goals, Plans, Preferences</h2><p>Sharing your future plans or goals helps us provide better advice, recommendations and keep you updated as best as possible. We track market growth to understand the needs of tomorrow, convergent markets to understand what new skills could be useful and overall connected trends that could help you reach your goals.</p></div></div></div></section>
-<section class="step band"><div class="wrap"><h3>Getting Started</h3><div class="step-row"><div class="num">3</div><div><h2>Explore, Save, Attend</h2><p>That's it! You’re free to explore the materials and take the first step towards your goals.</p></div></div></div></section>
+<section class="getting-started" aria-labelledby="getting-started-title">
+  <div class="getting-started-label"><h3 id="getting-started-title">Getting Started</h3></div>
+  <section class="getting-step band"><div class="wrap"><div class="step-row"><div class="num">1</div><div><h2>Share your interests</h2><p>This helps us build your portfolio and<br class="desktop"> only send you information relevant to<br class="desktop"> your needs.</p></div></div></div></section>
+  <section class="getting-step band"><div class="wrap"><div class="step-row"><div class="num">2</div><div><h2>Goals</h2><p>Sharing your goals helps us provide better advice and recommendations. We track market growth to understand the needs of tomorrow, convergent markets to understand what new skills could be useful and overall connected trends that could help you reach your goals.</p></div></div></div></section>
+  <section class="getting-step band"><div class="wrap"><div class="step-row"><div class="num">3</div><div><h2>Explore, Save, Attend</h2><p>That's it! You’re free to explore the materials and take the first step towards your goals.</p></div></div></div></section>
+</section>
 
 <section class="circumstances band"><div class="wrap"><h2>Our circumstances<br>don’t define us</h2><p>We believe you have the desire, ambition and talent to achieve your goals. Let us help you get there, no strings attached.</p></div></section>
 </main>
@@ -63,7 +66,7 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const desktop = window.matchMedia('(min-width: 701px)');
-  const sections = Array.from(document.querySelectorAll('main > .band'));
+  const sections = Array.from(document.querySelectorAll('main > .band, .getting-started > .getting-step'));
   const nav = document.querySelector('.topbar');
   let settleTimer = null;
   let settling = false;
