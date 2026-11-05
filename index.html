@@ -62,42 +62,6 @@
 </main>
 <footer id="contact"><div class="wrap footer-row"><span>Contact Us</span><div class="socials"><span>IG</span><span>YT</span><span>X</span><span>FB</span></div></div></footer>
 
-<script>
-(() => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const desktop = window.matchMedia('(min-width: 701px)');
-  const sections = Array.from(document.querySelectorAll('main > .band, .getting-started > .getting-step'));
-  const nav = document.querySelector('.topbar');
-  let settleTimer = null;
-  let settling = false;
 
-  function navHeight(){ return nav ? nav.getBoundingClientRect().height : 0; }
-  function nearestSection(){
-    const anchor = window.scrollY + navHeight();
-    let best = sections[0], bestDistance = Infinity;
-    for (const section of sections){
-      const distance = Math.abs(section.offsetTop - anchor);
-      if (distance < bestDistance){ bestDistance = distance; best = section; }
-    }
-    return best;
-  }
-  function settle(){
-    if (!desktop.matches || reduceMotion.matches || settling) return;
-    const targetSection = nearestSection();
-    if (!targetSection) return;
-    const target = Math.max(0, targetSection.offsetTop - navHeight());
-    if (Math.abs(window.scrollY - target) < 3) return;
-    settling = true;
-    window.scrollTo({top: target, behavior: 'smooth'});
-    window.setTimeout(() => { settling = false; }, 520);
-  }
-  function scheduleSettle(){
-    if (!desktop.matches || reduceMotion.matches || settling) return;
-    clearTimeout(settleTimer);
-    settleTimer = window.setTimeout(settle, 95);
-  }
-  window.addEventListener('scroll', scheduleSettle, {passive:true});
-})();
-</script>
 
 </body></html>

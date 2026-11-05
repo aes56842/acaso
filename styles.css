@@ -642,3 +642,21 @@ main>.band{scroll-snap-align:start!important;scroll-snap-stop:always!important}
 @media(max-width:500px){
   .getting-step{padding:94px 0 44px}
 }
+
+/* v26 Getting Started snap hierarchy fix */
+.getting-started{
+  scroll-snap-align:none!important;
+  scroll-snap-stop:normal!important;
+}
+.getting-started>.getting-step{
+  min-height:calc(100vh - var(--nav-h,64px));
+  min-height:calc(100svh - var(--nav-h,64px));
+  scroll-snap-align:start!important;
+  scroll-snap-stop:always!important;
+}
+@media(max-width:700px){
+  .getting-started>.getting-step{
+    min-height:calc(100svh - var(--nav-h,58px));
+    scroll-snap-stop:always!important;
+  }
+}
