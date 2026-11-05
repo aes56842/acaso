@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ACASO</title>
+<link rel="stylesheet" href="https://use.typekit.net/hlv4ncy.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,15 +14,21 @@
   <img class="hero-art" src="collage.png" alt="ACASO collage artwork">
   <div class="shade"></div>
   <div class="hero-copy wrap">
-    <h1><span class="hero-line">Connecting <em>Ambition</em> With</span><span class="hero-line"><em>Opportunity</em>, Everywhere</span></h1>
+    <h1><span class="hero-line">Connecting Ambition With</span><span class="hero-line">Opportunity, Everywhere</span></h1>
     <p>Learn, connect, and enjoy tailor made<br>enrichment opportunities from any industry.</p>
     <a class="wait" href="#contact">Join the Waitlist</a>
   </div>
 </section>
 
+<section class="video-band band">
+  <video autoplay muted loop playsinline preload="metadata" poster="what-will-you-do-poster.jpg"><source src="what-will-you-do.mp4" type="video/mp4"></video>
+  <div class="video-shade"></div><div class="video-title"><span class="video-kicker">Every Field,<br>Every Professional,<br>No Experience Required</span></div>
+</section>
+
+
 <section class="opportunities band"><div class="wrap opportunity-layout">
   <div class="opportunity-head">
-    <div><h2>Enrichment Opportunities</h2><p>We classify enrichment opportunities as any material, practice or<br class="desktop"> experience you can learn from, some examples include,</p></div>
+    <div><h2>Enrichment Opportunities</h2><p>We classify enrichment opportunities as any material, practice or<br class="desktop"> experience you can learn from, such as:</p></div>
     <a class="explore-more" href="#contact">Explore More <span aria-hidden="true">&rarr;</span></a>
   </div>
   <div class="opportunity-cards">
@@ -30,11 +37,6 @@
     <article class="opportunity-card"><img src="opportunity-blue.png" alt="Placeholder artwork for practice material"><div class="opportunity-card-copy">Practice Material</div></article>
   </div>
 </div></section>
-
-<section class="video-band band">
-  <video autoplay muted loop playsinline preload="metadata" poster="what-will-you-do-poster.jpg"><source src="what-will-you-do.mp4" type="video/mp4"></video>
-  <div class="video-shade"></div><div class="video-title"><span class="video-kicker">Every Field,<br>Every Professional,<br>No Experience Required</span><strong class="video-question">What Will You Do?</strong></div>
-</section>
 
 <section class="global band"><div class="wrap"><h2>Global Connection</h2><p>Here, you’re not defined by<br>your zip-code</p></div></section>
 
@@ -56,5 +58,43 @@
 <section class="circumstances band"><div class="wrap"><h2>Our circumstances<br>don’t define us</h2><p>We believe you have the desire, ambition and talent to achieve your goals. Let us help you get there, no strings attached.</p></div></section>
 </main>
 <footer id="contact"><div class="wrap footer-row"><span>Contact Us</span><div class="socials"><span>IG</span><span>YT</span><span>X</span><span>FB</span></div></div></footer>
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = window.matchMedia('(min-width: 701px)');
+  const sections = Array.from(document.querySelectorAll('main > .band'));
+  const nav = document.querySelector('.topbar');
+  let settleTimer = null;
+  let settling = false;
+
+  function navHeight(){ return nav ? nav.getBoundingClientRect().height : 0; }
+  function nearestSection(){
+    const anchor = window.scrollY + navHeight();
+    let best = sections[0], bestDistance = Infinity;
+    for (const section of sections){
+      const distance = Math.abs(section.offsetTop - anchor);
+      if (distance < bestDistance){ bestDistance = distance; best = section; }
+    }
+    return best;
+  }
+  function settle(){
+    if (!desktop.matches || reduceMotion.matches || settling) return;
+    const targetSection = nearestSection();
+    if (!targetSection) return;
+    const target = Math.max(0, targetSection.offsetTop - navHeight());
+    if (Math.abs(window.scrollY - target) < 3) return;
+    settling = true;
+    window.scrollTo({top: target, behavior: 'smooth'});
+    window.setTimeout(() => { settling = false; }, 520);
+  }
+  function scheduleSettle(){
+    if (!desktop.matches || reduceMotion.matches || settling) return;
+    clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(settle, 95);
+  }
+  window.addEventListener('scroll', scheduleSettle, {passive:true});
+})();
+</script>
 
 </body></html>
