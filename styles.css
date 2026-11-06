@@ -813,3 +813,43 @@ h1,h2,h3,.opportunities h2,.media h2,.independent h2,.global h2,.step-row h2,.ci
 @media(max-width:700px){
   .video-band::after{content:"";position:absolute;left:50%;top:44%;z-index:5;transform:translate(-42%,-50%);border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:24px solid #fff;pointer-events:none}
 }
+
+/* v30 mobile polish: full-bleed panels, video navigation/autoplay support, contrast */
+@media (max-width:700px){
+  html,body{margin:0!important;padding:0!important;width:100%!important;max-width:none!important;background:#171717!important;overflow-x:hidden!important}
+  body{padding-top:0!important}
+  main{width:100%!important;margin:0!important;padding:0!important;max-width:none!important}
+  main>.band,.getting-started>.getting-step{
+    width:100%!important;
+    margin:0!important;
+    border-radius:0!important;
+    min-height:100svh!important;
+    height:100svh!important;
+  }
+  .site-footer{width:100%!important;margin:0!important;border-radius:0!important}
+
+  .topbar{height:88px!important;padding:0 30px!important}
+  .brand img{height:32px!important;max-width:124px!important}
+  .wait.small{min-height:34px!important;padding:0 19px!important;font-size:7.5px!important}
+
+  /* Keep the play affordance centered on the media, but the section arrow at the panel bottom. */
+  .video-band{padding:96px 48px 74px!important}
+  .video-band video{height:calc(100% - 82px)!important}
+  .video-band::before{left:50%!important;top:44%!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:82px!important;height:82px!important;background:rgba(20,20,20,.46)!important;border:0!important;content:""!important;display:block!important}
+  .video-band::after{
+    content:"↓"!important;position:absolute!important;left:50%!important;top:auto!important;bottom:25px!important;z-index:20!important;
+    transform:translateX(-50%)!important;width:30px!important;height:30px!important;border:1px solid rgba(255,255,255,.95)!important;
+    border-radius:50%!important;display:grid!important;place-items:center!important;color:#fff!important;background:rgba(20,20,20,.15)!important;
+    font-size:16px!important;font-weight:400!important;line-height:1!important;pointer-events:none!important;
+  }
+  .video-shade{display:block!important;position:absolute!important;inset:0!important;background:none!important;pointer-events:none!important;z-index:5!important}
+  .video-shade::after{
+    content:"";position:absolute;left:50%;top:44%;transform:translate(-42%,-50%);
+    border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:24px solid #fff;
+  }
+
+  /* Stronger dark treatment so Independent copy reads clearly over the photograph. */
+  .independent-img{
+    background-image:linear-gradient(180deg,rgba(17,17,17,.58) 0%,rgba(17,17,17,.62) 45%,rgba(17,17,17,.76) 100%),url('independent-city.png')!important;
+  }
+}
