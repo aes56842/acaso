@@ -33,7 +33,7 @@
   <div class="opportunity-cards">
     <article class="opportunity-card"><img src="opportunity-red.png" alt="Placeholder artwork for internships"><div class="opportunity-card-copy">Internships</div></article>
     <article class="opportunity-card"><img src="opportunity-yellow.png" alt="Placeholder artwork for workshops"><div class="opportunity-card-copy">Workshops</div></article>
-    <article class="opportunity-card"><img src="opportunity-blue.png" alt="Placeholder artwork for practice material"><div class="opportunity-card-copy">Practice Material</div></article>
+    <article class="opportunity-card"><img src="opportunity-blue.png" alt="Placeholder artwork for practice material"><div class="opportunity-card-copy">Materials</div></article>
   </div>
 </div></section>
 
@@ -104,6 +104,46 @@
     }
   }, { threshold: [0, 0.35, 0.6, 1] });
   observer.observe(panel);
+})();
+</script>
+
+<script>
+(() => {
+  if (!window.matchMedia('(max-width: 700px)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const panels = Array.from(document.querySelectorAll('main > .band, .getting-started > .getting-step'))
+    .filter(el => getComputedStyle(el).display !== 'none');
+  let startY = 0;
+  let startIndex = 0;
+  let settling = false;
+  const nearestIndex = () => {
+    const y = window.scrollY;
+    let best = 0, dist = Infinity;
+    panels.forEach((p, i) => {
+      const d = Math.abs(p.getBoundingClientRect().top);
+      if (d < dist) { dist = d; best = i; }
+    });
+    return best;
+  };
+  window.addEventListener('touchstart', (e) => {
+    if (!e.touches.length || settling) return;
+    startY = e.touches[0].clientY;
+    startIndex = nearestIndex();
+  }, {passive:true});
+  window.addEventListener('touchend', (e) => {
+    if (settling || !e.changedTouches.length) return;
+    const delta = startY - e.changedTouches[0].clientY;
+    if (Math.abs(delta) < 34) return;
+    const direction = delta > 0 ? 1 : -1;
+    const targetIndex = Math.max(0, Math.min(panels.length - 1, startIndex + direction));
+    const target = panels[targetIndex];
+    if (!target) return;
+    settling = true;
+    window.setTimeout(() => {
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      window.setTimeout(() => { settling = false; }, 520);
+    }, 30);
+  }, {passive:true});
 })();
 </script>
 

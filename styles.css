@@ -853,3 +853,44 @@ h1,h2,h3,.opportunities h2,.media h2,.independent h2,.global h2,.step-row h2,.ci
     background-image:linear-gradient(180deg,rgba(17,17,17,.58) 0%,rgba(17,17,17,.62) 45%,rgba(17,17,17,.76) 100%),url('independent-city.png')!important;
   }
 }
+
+/* v31 mobile refinements: single-arrow hero, stronger panel snapping, playful cards */
+@media (max-width:700px){
+  html{scroll-snap-type:y mandatory!important;scroll-behavior:smooth!important;overscroll-behavior-y:contain}
+  main>.band,.getting-started>.getting-step{scroll-snap-align:start!important;scroll-snap-stop:always!important}
+  .getting-started{scroll-snap-align:none!important}
+
+  /* Only the landing page keeps the down-arrow. */
+  main>.band::after,.getting-started>.getting-step::after,.global::after,.video-band::after{content:none!important;display:none!important}
+  .hero::after{
+    content:"↓"!important;display:grid!important;position:absolute!important;left:50%!important;right:auto!important;top:auto!important;bottom:25px!important;
+    z-index:20!important;transform:translateX(-50%)!important;width:30px!important;height:30px!important;border:1px solid rgba(255,255,255,.95)!important;
+    border-radius:50%!important;place-items:center!important;color:#fff!important;background:rgba(20,20,20,.15)!important;font-size:16px!important;font-weight:400!important;line-height:1!important
+  }
+
+  /* Video autoplays via IntersectionObserver; no play overlay on mobile. */
+  .video-band::before,.video-shade::after{content:none!important;display:none!important}
+
+  /* Enrichment: three loose, overlapping cards like the mobile comp. */
+  .opportunity-cards{height:355px!important;min-height:355px!important;margin-top:38px!important}
+  .opportunity-card{width:46%!important;height:238px!important}
+  .opportunity-card:nth-child(1){left:27%!important;top:5px!important;z-index:4!important;transform:rotate(0deg)!important}
+  .opportunity-card:nth-child(2){right:1%!important;top:86px!important;z-index:2!important;transform:rotate(7deg)!important}
+  .opportunity-card:nth-child(3){left:1%!important;top:78px!important;z-index:1!important;transform:rotate(-7deg)!important}
+  .opportunity-card:nth-child(1) .opportunity-card-copy{left:50%!important;transform:translateX(-50%)!important;text-align:center!important}
+  .opportunity-card:nth-child(2) .opportunity-card-copy{left:50%!important;transform:translateX(-50%)!important;text-align:center!important}
+  .opportunity-card:nth-child(3) .opportunity-card-copy{left:0!important;transform:none!important;font-size:12px!important}
+  .opportunity-card:nth-child(3) .opportunity-card-copy::after{content:none!important}
+
+  /* Media: Process remains secondary but is not unnaturally skinny. */
+  .media-card.backstage{left:23%!important;width:54%!important}
+  .media-card.workshop{left:2%!important;width:37%!important;top:62px!important}
+  .media-card.process{right:1%!important;width:38%!important;top:72px!important}
+
+  /* Center the Getting Started composition in the viewport; copy remains left-aligned for readability. */
+  .getting-started>.getting-step{align-items:center!important;justify-content:center!important}
+  .getting-step .wrap{width:min(82%,320px)!important;max-width:320px!important;margin:0 auto!important;padding:0!important}
+  .getting-step .wrap::before{text-align:left!important;margin-bottom:22px!important}
+  .step-row{width:100%!important;margin:0 auto!important}
+  .num{margin-left:0!important}
+}
