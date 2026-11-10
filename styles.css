@@ -894,3 +894,111 @@ h1,h2,h3,.opportunities h2,.media h2,.independent h2,.global h2,.step-row h2,.ci
   .step-row{width:100%!important;margin:0 auto!important}
   .num{margin-left:0!important}
 }
+
+
+/* v32 mobile viewport + hierarchy refinements */
+@media (max-width:700px){
+  /* Use the live visual viewport on mobile Safari so each snap panel fills the
+     currently visible browser area as the address/tool bars expand/collapse. */
+  main>.band,.getting-started>.getting-step{
+    min-height:100vh!important;
+    height:100vh!important;
+    min-height:100dvh!important;
+    height:100dvh!important;
+  }
+
+  /* Enrichment is the concrete product-explanation moment: give its cards
+     substantially more visual presence while preserving the loose collage. */
+  .opportunity-layout{padding-top:120px!important;padding-bottom:42px!important}
+  .opportunity-cards{height:410px!important;min-height:410px!important;margin-top:30px!important}
+  .opportunity-card{width:54%!important;height:285px!important}
+  .opportunity-card:nth-child(1){left:23%!important;top:2px!important}
+  .opportunity-card:nth-child(2){right:-4%!important;top:98px!important;transform:rotate(7deg)!important}
+  .opportunity-card:nth-child(3){left:-4%!important;top:91px!important;transform:rotate(-7deg)!important}
+
+  /* Independent should read as a confident statement rather than small copy
+     floating over a large photograph. */
+  .independent-copy{margin:0 30px!important;padding-top:124px!important}
+  .independent-copy h2{font-size:clamp(30px,8.4vw,38px)!important;line-height:1.06!important;margin-bottom:18px!important;max-width:360px!important}
+  .independent-copy p{font-size:clamp(15px,4.15vw,18px)!important;line-height:1.48!important;max-width:355px!important}
+}
+
+
+/* v33 desktop hierarchy + product explanation + FAQ */
+.primary-nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:34px;height:100%}
+.primary-nav a{font-family:"Montserrat Local",Montserrat,Arial,sans-serif;color:#eee;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.02em;transition:color .2s ease}
+.primary-nav a:hover,.primary-nav a:focus-visible{color:var(--yellow)}
+
+/* Insider Access: stronger title/body hierarchy and natural wrapping */
+.media-copy{text-align:left}
+.media-copy h2{text-decoration:none!important;font-size:clamp(42px,3.7vw,64px);font-weight:700!important;letter-spacing:-.035em;margin-bottom:24px}
+.media-copy p{color:#aaa!important;font-size:clamp(18px,1.35vw,24px)!important;line-height:1.5!important;max-width:560px!important;text-wrap:balance}
+.media-copy strong{color:#f5f5f5!important;font-weight:600}
+
+/* Pull Independent copy farther into the dark field. */
+.independent-copy{padding-left:0!important;margin-left:max(var(--gutter),calc((100vw - var(--max))/2))!important;margin-right:auto!important;width:min(48vw,680px)!important}
+.independent-copy h2{font-size:clamp(38px,3.1vw,54px)!important}
+.independent-copy p{font-size:clamp(17px,1.15vw,20px)!important;max-width:570px!important}
+
+/* More deliberate Getting Started system. */
+.getting-started-label{left:max(var(--gutter),calc((100vw - var(--max))/2))!important}
+.getting-started-label h3{font-size:clamp(25px,2vw,34px)!important;letter-spacing:.02em}
+.getting-step .wrap{width:min(1040px,82vw)!important;margin:0 auto!important}
+.getting-step .step-row{grid-template-columns:210px minmax(0,620px)!important;gap:72px!important;align-items:center!important;justify-content:center!important}
+.getting-step .num{font-size:clamp(150px,13vw,220px)!important;line-height:.78!important;margin:0!important}
+.getting-step .step-row h2{font-size:clamp(38px,3.4vw,56px)!important;line-height:1.04!important;margin-bottom:16px!important}
+.getting-step .step-row p{font-size:clamp(17px,1.25vw,21px)!important;line-height:1.5!important;max-width:610px!important}
+
+.how-it-works,.faq{min-height:calc(100vh - var(--nav-h,70px));display:flex;align-items:center;padding:clamp(70px,8vh,110px) 0;background:#151515}
+.how-layout{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(580px,1.45fr);gap:clamp(60px,8vw,130px);align-items:center}
+.section-eyebrow{display:block;color:var(--yellow);font:700 13px/1 "Montserrat Local",Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.13em;margin-bottom:18px}
+.how-intro h2,.faq-intro h2{font:700 clamp(40px,4.1vw,66px)/1.02 "Montserrat Local",Montserrat,sans-serif;letter-spacing:-.035em;margin:0 0 24px}
+.how-intro p,.faq-intro p{font:400 clamp(17px,1.25vw,21px)/1.55 "Montserrat Local",Montserrat,sans-serif;color:#aaa;max-width:560px}
+.how-features{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #444;border-left:1px solid #444}
+.how-features article{min-height:220px;padding:28px 30px;border-right:1px solid #444;border-bottom:1px solid #444}
+.how-features article>span{display:block;color:var(--yellow);font:700 13px/1 "Montserrat Local",Montserrat,sans-serif;margin-bottom:44px}
+.how-features h3{font:700 22px/1.15 "Montserrat Local",Montserrat,sans-serif;margin:0 0 12px}
+.how-features p{font:400 15px/1.5 "Montserrat Local",Montserrat,sans-serif;color:#aaa;margin:0}
+
+.faq{background:#111}
+.faq-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(70px,9vw,150px);align-items:start}
+.faq-list{border-top:1px solid #555}
+.faq-list details{border-bottom:1px solid #555;padding:0}
+.faq-list summary{cursor:pointer;list-style:none;position:relative;padding:25px 46px 25px 0;font:600 clamp(18px,1.4vw,23px)/1.3 "Montserrat Local",Montserrat,sans-serif}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";position:absolute;right:4px;top:21px;color:var(--yellow);font-size:28px;font-weight:400}
+.faq-list details[open] summary::after{content:"–"}
+.faq-list details p{margin:0;padding:0 50px 25px 0;color:#aaa;font:400 15px/1.55 "Montserrat Local",Montserrat,sans-serif;max-width:720px}
+
+@media(max-width:1000px) and (min-width:701px){.primary-nav{gap:18px}.primary-nav a{font-size:10px}.how-layout,.faq-layout{grid-template-columns:1fr;gap:42px}.how-features{max-width:820px}}
+
+@media(max-width:700px){
+  .primary-nav{display:none!important}
+  .media-copy p{color:#b8b8b8!important;font-size:13.5px!important;line-height:1.48!important;max-width:315px!important;text-wrap:pretty}
+  .media-copy h2{font-size:28px!important;margin-bottom:14px!important}
+  .independent-copy{width:auto!important;margin:0 28px!important;padding:132px 0 0!important}
+  .independent-copy h2{font-size:clamp(30px,8.4vw,38px)!important}
+  .independent-copy p{font-size:clamp(15px,4.15vw,18px)!important;max-width:340px!important}
+
+  .getting-step .wrap{width:min(84%,340px)!important;max-width:340px!important}
+  .getting-step .wrap::before{font-size:27px!important;margin-bottom:26px!important}
+  .getting-step .num{font-size:clamp(140px,42vw,172px)!important;margin-bottom:34px!important}
+  .getting-step .step-row h2{font-size:27px!important;margin-bottom:13px!important}
+  .getting-step .step-row p,.getting-step:nth-of-type(3) .step-row p{font-size:14.5px!important;line-height:1.5!important;max-width:330px!important}
+
+  .how-it-works,.faq{display:block!important;min-height:100dvh!important;height:100dvh!important;padding:0!important}
+  .how-layout,.faq-layout{display:block!important;margin:0 28px!important;padding:118px 0 54px!important}
+  .section-eyebrow{font-size:10px!important;margin-bottom:13px!important}
+  .how-intro h2,.faq-intro h2{font-size:30px!important;line-height:1.04!important;margin-bottom:14px!important}
+  .how-intro p,.faq-intro p{font-size:13px!important;line-height:1.45!important;max-width:320px!important}
+  .how-features{margin-top:30px!important;grid-template-columns:1fr 1fr!important}
+  .how-features article{min-height:142px!important;padding:16px!important}
+  .how-features article>span{font-size:9px!important;margin-bottom:18px!important}
+  .how-features h3{font-size:14px!important;margin-bottom:7px!important}
+  .how-features p{font-size:10px!important;line-height:1.38!important}
+  .faq-intro{margin-bottom:24px!important}
+  .faq-list summary{font-size:15px!important;padding:17px 34px 17px 0!important}
+  .faq-list summary::after{top:13px!important;font-size:24px!important}
+  .faq-list details p{font-size:11.5px!important;line-height:1.45!important;padding:0 32px 16px 0!important}
+}
+
