@@ -1027,3 +1027,60 @@ h1,h2,h3,.opportunities h2,.media h2,.independent h2,.global h2,.step-row h2,.ci
   .what-layout p{font-size:15px!important;line-height:1.5!important;max-width:330px!important;color:#c4c4c4!important}
   .independent-copy{margin-left:20px!important;margin-right:34px!important}
 }
+
+
+/* v35 feature chapter hierarchy */
+.what-you-get{
+  min-height:calc(100vh - var(--nav-h,70px));
+  display:flex;
+  align-items:center;
+  background:#151515;
+}
+.what-you-get-layout{
+  position:relative;
+  width:min(1180px,84vw)!important;
+  margin:0 auto!important;
+}
+.what-you-get .section-eyebrow{
+  color:var(--yellow);
+  margin-bottom:20px;
+}
+.what-you-get h2{
+  font:700 clamp(46px,5vw,78px)/1.02 "Montserrat Local",Montserrat,Arial,sans-serif;
+  letter-spacing:-.04em;
+  margin:0 0 20px;
+  max-width:850px;
+}
+.what-you-get p{
+  font:400 clamp(18px,1.35vw,23px)/1.5 "Montserrat Local",Montserrat,Arial,sans-serif;
+  color:#aaa;
+  max-width:720px;
+  margin:0;
+}
+.chapter-cue{
+  position:absolute;
+  left:min(760px,70%);
+  top:58%;
+  color:var(--yellow);
+  font-size:42px;
+  line-height:1;
+  transform:rotate(-18deg);
+}
+@media(max-width:700px){
+  .what-you-get{
+    min-height:100dvh!important;
+    height:100dvh!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:0!important;
+  }
+  .what-you-get-layout{
+    width:auto!important;
+    margin:0 30px!important;
+    padding:0!important;
+  }
+  .what-you-get .section-eyebrow{font-size:10px!important;margin-bottom:16px!important}
+  .what-you-get h2{font-size:clamp(32px,9vw,40px)!important;line-height:1.03!important;max-width:320px!important;margin-bottom:16px!important}
+  .what-you-get p{font-size:13px!important;line-height:1.48!important;max-width:310px!important}
+  .chapter-cue{left:auto;right:22px;top:auto;bottom:-72px;font-size:32px}
+}
