@@ -1084,3 +1084,48 @@ h1,h2,h3,.opportunities h2,.media h2,.independent h2,.global h2,.step-row h2,.ci
   .what-you-get p{font-size:13px!important;line-height:1.48!important;max-width:310px!important}
   .chapter-cue{left:auto;right:22px;top:auto;bottom:-72px;font-size:32px}
 }
+
+/* v37: continuous section flow + taller navigation + upward content reveals */
+:root{--nav-h:74px}
+.topbar{height:74px!important}
+html{scroll-padding-top:74px!important}
+body{padding-top:74px!important}
+
+/* Remove legacy inter-panel spacer bands and separator rules. */
+main>.band,
+main>.band:last-child,
+.getting-started>.getting-step{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  border-top:0!important;
+  border-bottom:0!important;
+}
+.getting-started{margin:0!important;border:0!important}
+
+/* Reveal the content, not the section/background itself. */
+.reveal-up{
+  opacity:0;
+  transform:translate3d(0,46px,0);
+  transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .82s cubic-bezier(.22,1,.36,1);
+  will-change:opacity,transform;
+}
+.reveal-up.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.reveal-up.reveal-delay-1{transition-delay:.08s}
+.reveal-up.reveal-delay-2{transition-delay:.16s}
+
+@media(max-width:700px){
+  :root{--nav-h:94px}
+  .topbar{height:94px!important}
+  html{scroll-padding-top:94px!important}
+  body{padding-top:94px!important}
+  /* Remove the old mobile card-like gaps so the experience is continuous. */
+  main>.band,.getting-started>.getting-step{
+    width:100%!important;
+    margin:0!important;
+    border-radius:0!important;
+  }
+  .reveal-up{transform:translate3d(0,32px,0);transition-duration:.65s,.72s}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal-up,.reveal-up.is-visible{opacity:1!important;transform:none!important;transition:none!important}
+}

@@ -80,7 +80,7 @@
   </div>
 </div></section>
 
-<section class="circumstances band"><div class="wrap"><h2>Our circumstances<br>don’t define us</h2><p>We believe you have the desire, ambition and talent to achieve your goals. Let us help you get there, no strings attached.</p></div></section>
+
 </main>
 <footer id="contact" class="site-footer">
   <div class="wrap footer-main">
@@ -168,6 +168,37 @@
       window.setTimeout(() => { settling = false; }, 520);
     }, 30);
   }, {passive:true});
+})();
+</script>
+
+
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectors = [
+    '.hero-copy', '.video-title', '.what-layout', '.what-you-get-layout',
+    '.opportunity-head', '.opportunity-cards', '.global .wrap',
+    '.media-copy', '.media-cards', '.independent-copy',
+    '.getting-step .step-row', '.faq-intro', '.faq-list'
+  ];
+  const nodes = selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+  nodes.forEach((node, i) => {
+    node.classList.add('reveal-up');
+    if (node.matches('.opportunity-cards,.media-cards,.faq-list')) node.classList.add('reveal-delay-1');
+  });
+  if (reduce || !('IntersectionObserver' in window)) {
+    nodes.forEach(node => node.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.18, rootMargin: '0px 0px -8% 0px'});
+  nodes.forEach(node => observer.observe(node));
 })();
 </script>
 
