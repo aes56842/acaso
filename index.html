@@ -177,14 +177,14 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const selectors = [
     '.hero-copy', '.video-title', '.what-layout', '.what-you-get-layout',
-    '.opportunity-head', '.opportunity-cards', '.global .wrap',
+    '.opportunity-head', '.opportunity-cards', '.global h2', '.global p',
     '.media-copy', '.media-cards', '.independent-copy',
     '.getting-step .step-row', '.faq-intro', '.faq-list'
   ];
   const nodes = selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)));
   nodes.forEach((node, i) => {
     node.classList.add('reveal-up');
-    if (node.matches('.opportunity-cards,.media-cards,.faq-list')) node.classList.add('reveal-delay-1');
+    if (node.matches('.opportunity-cards,.media-cards,.faq-list,.global p')) node.classList.add('reveal-delay-1');
   });
   if (reduce || !('IntersectionObserver' in window)) {
     nodes.forEach(node => node.classList.add('is-visible'));
